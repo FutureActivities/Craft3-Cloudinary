@@ -45,22 +45,29 @@ class Transform extends Component
     protected function scaleAndCrop($image, $sizes)
     {
         $focalPoint = $image->getFocalPoint();
-          
+         
         foreach ($sizes AS &$size) {
-            
-            $x = strval(round($focalPoint['x'] * $image->width));
-            $y = strval(round($focalPoint['y'] * $image->height));
             
             $quality = 100;
             if (isset($size['quality']))
                 $quality = $size['quality'];
-            
-            $size['transformation'] = [];
-            if ($image->width >= $image->height)
-                $size['transformation'][] = ['height' => $size['height'], 'crop' => 'scale', 'quality' => $quality];
-            else if ($image->width < $image->height)
-                $size['transformation'][] = ['width' => $size['width'], 'crop' => 'scale', 'quality' => $quality];
                 
+            $ratio = $image->width / $image->height;
+                
+            $size['transformation'] = [];
+            if ($image->width / $size['width'] < $image->height / $size['height']) {
+                $size['transformation'][] = ['width' => $size['width'], 'crop' => 'scale', 'quality' => $quality];
+                $width = $size['width'];
+                $height = $size['width'] / $ratio;
+            } else {
+                $size['transformation'][] = ['height' => $size['height'], 'crop' => 'scale', 'quality' => $quality];
+                $width = $size['height'] * $ratio;
+                $height = $size['height'];
+            }
+            
+            $x = strval(round($focalPoint['x'] * $width));
+            $y = strval(round($focalPoint['y'] * $height));
+            
             $size['transformation'][] = ['height' => $size['height'], 'width' => $size['width'], 'crop' => 'crop', 'gravity' => 'xy_center', 'x' => $x, 'y' => $y, 'quality' => $quality];
         }
         
