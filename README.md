@@ -1,5 +1,7 @@
 # Cloudinary Volume for Craft 3
 
+THIS IS STILL IN DEVELOPMENT. USE WITH CAUTION.
+
 This will add a new asset volume for Cloudinary and supports srcset generation.
 
 
