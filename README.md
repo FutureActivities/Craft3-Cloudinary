@@ -9,9 +9,9 @@ Use `craft.cloudinary.transform(image, sizes, options)` in your twig templates.
 
 Where:
 
-`image` is a Craft Asset Model
-`sizes` is an array of sizes you want to generate this image as. This also supports any cloudinary option per size.
-`options` is an array of additional options including any cloudinary option that you want to apply to all sizes.
+- `image` is a Craft Asset Model
+- `sizes` is an array of sizes you want to generate this image as. This also supports any cloudinary option per size.
+- `options` is an array of additional options including any cloudinary option that you want to apply to all sizes.
 
 Example:
 
