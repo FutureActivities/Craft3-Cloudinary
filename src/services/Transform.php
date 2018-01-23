@@ -21,7 +21,7 @@ class Transform extends Component
         if (!isset($options['alt']))
             $options['alt'] = $image->title;
             
-        // Scale and crop?
+        // Scale and crop
         if (isset($options['scaleAndCrop']) && $options['scaleAndCrop']) {
             $sizes = $this->scaleAndCrop($image, $sizes);
             unset($options['scaleAndCrop']);

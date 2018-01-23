@@ -111,7 +111,7 @@ class Volume extends FlysystemVolume
      */
     public function getFileStream(string $uriPath)
     {
-        return parent::getFileStream($this->_removeExtension($uriPath));
+        return parent::getFileStream($uriPath);
     }
 
     /**
@@ -133,19 +133,7 @@ class Volume extends FlysystemVolume
 
         return $rules;
     }
-
-    /**
-     * @inheritdoc
-     *
-     * @return string|null
-     */
-    public function getSettingsHtml()
-    {
-        return Craft::$app->getView()->renderTemplate('cloudinary/volumeSettings', [
-            'volume' => $this
-        ]);
-    }
-
+    
     /**
      * @inheritdoc
      */
