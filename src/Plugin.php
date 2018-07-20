@@ -25,7 +25,7 @@ class Plugin extends \craft\base\Plugin
     {
         parent::init();
                 
-        \Craft::$app->view->twig->addExtension(new CloudinaryTwigExtension());
+        \Craft::$app->view->registerTwigExtension(new CloudinaryTwigExtension());
         
         \Cloudinary::config(array(
             "cloud_name" => $this->settings->cloudName, 
