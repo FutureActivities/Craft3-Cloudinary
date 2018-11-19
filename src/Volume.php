@@ -175,7 +175,7 @@ class Volume extends FlysystemVolume
     private function _removeExtension(string $path)
     {
         $pathInfo = pathinfo($path);
-
+        print_r($pathInfo);
         return implode('/', [
             $pathInfo['dirname'],
             $pathInfo['filename'],
