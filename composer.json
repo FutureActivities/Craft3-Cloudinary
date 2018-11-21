@@ -1,5 +1,5 @@
 {
-    "name": "peopledesign/craft3-cloudinary",
+    "name": "futureactivities/craft3-cloudinary",
     "description": "Cloudinary volume for Craft 3",
     "type": "craft-plugin",
     "version": "0.8.0",
@@ -12,14 +12,9 @@
     ],
     "license": "MIT",
     "authors": [{
-            "name": "Future Activities",
-            "homepage": "https://github.com/FutureActivities"
-        },
-        {
-            "name": "Peopledesign",
-            "homepage": "https://github.com/Peopledesign"
-        }
-    ],
+        "name": "Future Activities",
+        "homepage": "https://github.com/FutureActivities"
+    }],
     "require": {
         "craftcms/cms": "^3.0.0-beta.24",
         "enl/flysystem-cloudinary": "^1.0",
@@ -37,4 +32,3 @@
             "transform": "futureactivities\\cloudinary\\services\\Transform"
         }
     }
-}
