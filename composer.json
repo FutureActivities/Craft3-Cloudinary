@@ -2,7 +2,7 @@
     "name": "peopledesign/craft3-cloudinary",
     "description": "Cloudinary volume for Craft 3",
     "type": "craft-plugin",
-    "version": "0.8.1",
+    "version": "0.8.0",
     "keywords": [
         "cloudinary",
         "cms",
