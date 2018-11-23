@@ -4,6 +4,7 @@ namespace futureactivities\cloudinary;
 use Craft;
 use craft\base\FlysystemVolume;
 use Enl\Flysystem\Cloudinary\ApiFacade as CloudinaryClient;
+use Enl\Flysystem\Cloudinary\Converter\TruncateExtensionConverter;
 use Enl\Flysystem\Cloudinary\CloudinaryAdapter;
 use futureactivities\cloudinary\Plugin as Cloudinary;
 
@@ -166,7 +167,7 @@ class Volume extends FlysystemVolume
 
     protected static function client(array $config = []): CloudinaryClient
     {
-        return new CloudinaryClient($config);
+        return new CloudinaryClient($config, new TruncateExtensionConverter());
     }
 
     // Private Methods
@@ -175,7 +176,6 @@ class Volume extends FlysystemVolume
     private function _removeExtension(string $path)
     {
         $pathInfo = pathinfo($path);
-
         return implode('/', [
             $pathInfo['dirname'],
             $pathInfo['filename'],
